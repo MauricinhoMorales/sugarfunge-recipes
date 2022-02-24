@@ -1,0 +1,86 @@
+[{
+        "endpoint": "asset/create_class",
+        "body": {
+            "seed": "//Alice",
+            "metadata": {
+                "userdata": "Hola"
+            },
+            "class_id": 2,
+            "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+        }
+    },
+    {
+        "endpoint": "asset/create",
+        "body": {
+            "seed": "//Alice",
+            "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 2,
+            "asset_id": 1,
+            "metadata": {
+                "userdata": "Hola"
+            }
+        }
+    }, {
+        "endpoint": "currency/issue",
+        "body": {
+            "seed": "//Alice",
+            "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "currency": {
+                "class_id": 2,
+                "asset_id": 1
+            },
+            "amount": 5000000
+        }
+    },
+    {
+        "endpoint": "currency/issuance",
+        "body": {
+            "currency": {
+                "class_id": 2,
+                "asset_id": 1
+            }
+        }
+    },
+    {
+        "endpoint": "currency/issue",
+        "body": {
+            "seed": "//Alice",
+            "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "currency": {
+                "class_id": 2,
+                "asset_id": 1
+            },
+            "amount": 5000000
+        }
+    },
+    {
+        "endpoint": "currency/issuance",
+        "body": {
+            "currency": {
+                "class_id": 2,
+                "asset_id": 1
+            }
+        }
+    },
+    {
+        "endpoint": "currency/issue",
+        "body": {
+            "seed": "//Alice",
+            "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "currency": {
+                "class_id": 2,
+                "asset_id": 1
+            },
+            "amount": 5000000
+        }
+    },
+    {
+        "endpoint": "currency/issuance",
+        "body": {
+            "currency": {
+                "class_id": 2,
+                "asset_id": 1
+            }
+        }
+    }
+]

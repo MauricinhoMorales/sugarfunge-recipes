@@ -1,0 +1,53 @@
+[{
+        "endpoint": "asset/create_class",
+        "body": {
+            "seed": "//Alice",
+            "metadata": {
+                "userdata": ""
+            },
+            "class_id": 1,
+            "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+        }
+    },
+    {
+        "endpoint": "asset/mint",
+        "body": {
+            "seed": "//Alice",
+            "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 1,
+            "asset_id": 1,
+            "amount": 1000000
+        }
+    },
+    {
+        "endpoint": "asset/balance",
+        "body": {
+            "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 1,
+            "asset_id": 1
+        }
+    },
+    {
+        "endpoint": "asset/transfer_from",
+        "body": {
+            "seed": "//Alice",
+            "from": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "to": "5E1VkrC6TsH9oRkPjbHgKmQZDaCNd3LAg3cgPpyAoWuKAATc",
+            "class_id": 1,
+            "asset_id": 1,
+            "amount": 100000
+        }
+    },
+    {
+        "endpoint": "asset/create",
+        "body": {
+            "seed": "//Alice",
+            "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 1,
+            "asset_id": 1,
+            "metadata": {
+                "userdata": ""
+            }
+        }
+    }
+]

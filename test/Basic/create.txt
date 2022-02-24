@@ -1,0 +1,4 @@
+Request: Account Create
+Body: ""
+Response: {"seed":"//e46666df51621202865c50e10f3d956fa1a65965a7154d7e33f254109a73a098","account":"5FbmVoDZvAJ8C4CZaphGgii8RXY3Lb5Zg8Jguf8iuUb6A8Wr"}
+

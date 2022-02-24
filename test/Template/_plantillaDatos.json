@@ -1,0 +1,124 @@
+[{
+        "endpoint": "account/create",
+        "body": ""
+
+    },
+    {
+        "endpoint": "account/fund",
+        "body": {
+            "seed": "//Alice",
+            "amount": 750000000000000,
+            "to": "5EXWQEMj9a2246uq9tEig2joR9Fn13SgPRURjU6CFeiWm8mG"
+        }
+    },
+    {
+        "endpoint": "account/balance",
+        "body": {
+            "account": "5EXWQEMj9a2246uq9tEig2joR9Fn13SgPRURjU6CFeiWm8mG"
+        }
+    },
+    {
+        "endpoint": "asset/create_class",
+        "body": {
+            "seed": "//Alice",
+            "metadata": {
+                "userdata": ""
+            },
+            "class_id": 3,
+            "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+        }
+    },
+    {
+        "endpoint": "asset/create",
+        "body": {
+            "seed": "//Alice",
+            "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 3,
+            "asset_id": 1,
+            "metadata": {
+                "userdata": ""
+            }
+        }
+    },
+    {
+        "endpoint": "asset/mint",
+        "body": {
+            "seed": "//Alice",
+            "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 3,
+            "asset_id": 1,
+            "amount": 1000000
+        }
+    },
+    {
+        "endpoint": "asset/balance",
+        "body": {
+            "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "class_id": 3,
+            "asset_id": 1
+        }
+    },
+    {
+        "endpoint": "asset/transfer_from",
+        "body": {
+            "seed": "//Alice",
+            "from": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "to": "5EXWQEMj9a2246uq9tEig2joR9Fn13SgPRURjU6CFeiWm8mG",
+            "class_id": 3,
+            "asset_id": 1,
+            "amount": 100000
+        }
+    },
+    {
+        "endpoint": "currency/issue",
+        "body": {
+            "seed": "//Alice",
+            "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+            "currency": {
+                "class_id": 3,
+                "asset_id": 1
+            },
+            "amount": 5000000
+        }
+    },
+    {
+        "endpoint": "currency/issuance",
+        "body": {
+            "currency": {
+                "class_id": 3,
+                "asset_id": 1
+            }
+        }
+    },
+    {
+        "endpoint": "currency/mint",
+        "body": {
+            "amount": 3000000,
+            "currency": {
+                "class_id": 3,
+                "asset_id": 1
+            },
+            "seed": "//Alice"
+        }
+    },
+    {
+        "endpoint": "currency/burn",
+        "body": {
+            "amount": 1000000,
+            "currency": {
+                "class_id": 3,
+                "asset_id": 1
+            },
+            "seed": "//Alice"
+        }
+    },
+    {
+        "endpoint": "currency/supply",
+        "body": {
+            "currency": {
+                "class_id": 1,
+                "asset_id": 1
+            }
+        }
+    }
+]

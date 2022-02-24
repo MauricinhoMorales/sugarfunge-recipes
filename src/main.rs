@@ -36,6 +36,12 @@ async fn send_request(request: &Request, path: String) -> Result<String, Box<dyn
         }
         "account/fund" => {
             let body = serde_json::from_value(request.body.clone()).unwrap();
+            // let body = AccountFundBody {
+            //     seed: serde_json::from_value(request.body.get("seed").unwrap().clone()).unwrap(),
+            //     amount: serde_json::from_value(request.body.get("amount").unwrap().clone())
+            //         .unwrap(),
+            //     to: serde_json::from_value(request.body.get("to").unwrap().clone()).unwrap(),
+            // };
             res = account_fund(request.endpoint.as_str(), body).await?;
             print_header("Account Fund", request.body.clone(), path).await?;
         }

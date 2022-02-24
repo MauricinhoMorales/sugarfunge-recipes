@@ -1,0 +1,49 @@
+[{
+        "endpoint": "market/create_market",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 1
+        }
+
+    }, {
+        "endpoint": "market/create_market_rate",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 1,
+            "market_rate_id": 2,
+            "rates": {
+                "rates": [{
+                    "class_id": 1,
+                    "asset_id": 1,
+                    "action": "Mint",
+                    "amount": 5000,
+                    "from": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+                    "to": "5Fs5CyJymgoACrUErnfEdU94hhC6Hsw34t6RJTtnjaZPHTbw"
+                }],
+                "metadata": {
+                    "userdata": "Hola"
+                }
+            }
+        }
+
+    }, {
+        "endpoint": "market/deposit_assets",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 1,
+            "market_rate_id": 2,
+            "amount": 1000
+        }
+
+    },
+    {
+        "endpoint": "market/exchange_assets",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 1,
+            "market_rate_id": 2,
+            "amount": 1000
+        }
+
+    }
+]
