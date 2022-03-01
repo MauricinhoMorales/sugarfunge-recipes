@@ -1,0 +1,45 @@
+[{
+        "endpoint": "market/create_market",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 16
+        }
+
+    }, {
+        "endpoint": "market/create_market_rate",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 16,
+            "market_rate_id": 16,
+            "rates": {
+                "rates": [{
+                    "class_id": 10,
+                    "asset_id": 10,
+                    "action": "HasGreaterEqualThan",
+                    "amount": 1000,
+                    "from": "Market",
+                    "to": "Buyer"
+                }],
+                "metadata": []
+            }
+        }
+
+    }, {
+        "endpoint": "market/deposit_assets",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 16,
+            "market_rate_id": 16,
+            "amount": 1000
+        }
+    },
+    {
+        "endpoint": "market/exchange_assets",
+        "body": {
+            "seed": "//Bob",
+            "market_id": 16,
+            "market_rate_id": 16,
+            "amount": 1000
+        }
+    }
+]

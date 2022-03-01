@@ -262,3 +262,71 @@ pub async fn escrow_refund(
         .await?;
     Ok(res)
 }
+
+pub async fn create_market(
+    endpoint: &str,
+    body: CreateMarketBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn create_market_rate(
+    endpoint: &str,
+    body: CreateMarketRateBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn deposit_assets(
+    endpoint: &str,
+    body: DepositAssetsBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn exchange_assets(
+    endpoint: &str,
+    body: ExchangeAssetsBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}

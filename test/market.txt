@@ -1,0 +1,16 @@
+Request: Create Market
+Body: {"market_id":16,"seed":"//Alice"}
+Response: {"market_id":16,"who":"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"}
+
+Request: Create Market Rate
+Body: {"market_id":16,"market_rate_id":16,"rates":{"metadata":[],"rates":[{"action":"HasGreaterEqualThan","amount":1000,"asset_id":10,"class_id":10,"from":"Market","to":"Buyer"}]},"seed":"//Alice"}
+Response: {"market_id":16,"market_rate_id":16,"who":"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"}
+
+Request: Deposit Assets
+Body: {"amount":1000,"market_id":16,"market_rate_id":16,"seed":"//Alice"}
+Response: {"who":"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY","market_id":16,"market_rate_id":16,"amount":1000,"success":true}
+
+Request: Exchange Assets
+Body: {"amount":1000,"market_id":16,"market_rate_id":16,"seed":"//Bob"}
+Response: {"buyer":"5FHneW46xGXgs5mUiveU4sbTyGBzmstUspZC92UhjJM694ty","market_id":16,"market_rate_id":16,"amount":1000,"success":true}
+

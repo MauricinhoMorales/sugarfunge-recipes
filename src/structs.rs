@@ -230,3 +230,90 @@ pub struct EscrowRefundResponse {
     pub operator: String,
     pub owner: String,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct CreateMarketBody {
+    seed: String,
+    market_id: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct CreateMarketResponse {
+    market_id: u64,
+    who: String,
+}
+#[derive(Serialize, Deserialize, Clone)]
+pub enum AmountOpInput {
+    Transfer,
+    Mint,
+    Burn,
+    HasEqual,
+    HasLessThan,
+    HasLessEqualThan,
+    HasGreaterThan,
+    HasGreaterEqualThan,
+}
+#[derive(Serialize, Deserialize, Clone)]
+pub struct AssetRateInput {
+    class_id: u64,
+    asset_id: u64,
+    action: AmountOpInput,
+    amount: i128,
+    from: String,
+    to: String,
+}
+#[derive(Serialize, Deserialize, Clone)]
+pub struct RatesInput {
+    rates: Vec<AssetRateInput>,
+    metadata: Vec<u8>,
+}
+#[derive(Serialize, Deserialize, Clone)]
+pub struct CreateMarketRateBody {
+    seed: String,
+    market_id: u64,
+    market_rate_id: u64,
+    rates: RatesInput,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct CreateMarketRateResponse {
+    market_id: u64,
+    market_rate_id: u64,
+    who: String,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct DepositAssetsBody {
+    seed: String,
+    market_id: u64,
+    market_rate_id: u64,
+    amount: u128,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct DepositAssetsResponse {
+    who: String,
+    market_id: u64,
+    market_rate_id: u64,
+    amount: u128,
+    //balances: Vec<RateBalance>,
+    success: bool,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct ExchangeAssetsBody {
+    seed: String,
+    market_id: u64,
+    market_rate_id: u64,
+    amount: u128,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct ExchangeAssetsResponse {
+    buyer: String,
+    market_id: u64,
+    market_rate_id: u64,
+    amount: u128,
+    //balances: Vec<RateBalance>,
+    success: bool,
+}

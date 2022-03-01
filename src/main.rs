@@ -115,7 +115,28 @@ async fn send_request(request: &Request, path: String) -> Result<String, Box<dyn
             res = escrow_refund(request.endpoint.as_str(), body).await?;
             print_header("Escrow Refund", request.body.clone(), path).await?;
         }
-        _ => res = "Este endpoint no existe".to_string(),
+        "market/create_market" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = create_market(request.endpoint.as_str(), body).await?;
+            print_header("Create Market", request.body.clone(), path).await?;
+        }
+        "market/create_market_rate" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = create_market_rate(request.endpoint.as_str(), body).await?;
+            print_header("Create Market Rate", request.body.clone(), path).await?;
+        }
+        "market/deposit_assets" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = deposit_assets(request.endpoint.as_str(), body).await?;
+            print_header("Deposit Assets", request.body.clone(), path).await?;
+        }
+        "market/exchange_assets" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = exchange_assets(request.endpoint.as_str(), body).await?;
+            print_header("Exchange Assets", request.body.clone(), path).await?;
+        }
+
+        _ => res = "This endpoint doesn't exist".to_string(),
     }
     Ok(res)
 }
