@@ -1,0 +1,10 @@
+[{
+    "endpoint": "asset/mint",
+    "body": {
+        "seed": "//Alice",
+        "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+        "class_id": 0,
+        "asset_id": 0,
+        "amount": 0
+    }
+}]

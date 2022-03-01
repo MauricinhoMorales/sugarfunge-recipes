@@ -1,0 +1,12 @@
+[{
+    "endpoint": "currency/issue",
+    "body": {
+        "seed": "//Alice",
+        "to": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+        "currency": {
+            "class_id": 0,
+            "asset_id": 0
+        },
+        "amount": 0
+    }
+}]

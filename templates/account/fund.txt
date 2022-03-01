@@ -1,0 +1,4 @@
+Request: Account Fund
+Body: {"amount":7500000000000000,"seed":"//Alice","to":"5EjU55Xf65ZPsDeTyddCgXo4vfKSt7tK6sBj56ing6ZEZC9o"}
+Response: {"from":"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY","to":"5EjU55Xf65ZPsDeTyddCgXo4vfKSt7tK6sBj56ing6ZEZC9o","amount":7500000000000000}
+

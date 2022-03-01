@@ -1,0 +1,11 @@
+[{
+    "endpoint": "currency/mint",
+    "body": {
+        "amount": 0,
+        "currency": {
+            "class_id": 0,
+            "asset_id": 0
+        },
+        "seed": "//Alice"
+    }
+}]

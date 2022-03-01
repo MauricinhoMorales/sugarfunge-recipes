@@ -1,0 +1,6 @@
+[{
+    "endpoint": "account/balance",
+    "body": {
+        "account": ""
+    }
+}]

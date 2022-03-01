@@ -143,30 +143,35 @@ async fn send_request(request: &Request, path: String) -> Result<String, Box<dyn
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
-    println!("Introduce el nombre del archivo: ");
-    let mut file_name = String::new();
-    io::stdin()
-        .read_line(&mut file_name)
-        .expect("Failed to read file name");
-    let _ = &file_name.pop();
-    let path = "test/".to_owned() + &file_name;
+    let mut path = String::from("option");
+    while path != "" {
+        //Create the variable to store the file name
+        println!("Enter the file path/name: ");
+        let mut file_name = String::new();
+        io::stdin()
+            .read_line(&mut file_name)
+            .expect("Failed to read file name");
+        let _ = &file_name.pop();
+        path = file_name;
 
-    File::create(path.clone() + ".txt").unwrap();
+        //Read the file.json and create a vector of requests
+        let file = File::open((path.clone() + ".json").trim())?;
+        let requests: Vec<Request> = serde_json::from_reader(file)?;
+        let iterator = requests.iter();
+        File::create(path.clone() + ".txt").unwrap();
 
-    let file = File::open((path.clone() + ".json").trim())?;
-    let requests: Vec<Request> = serde_json::from_reader(file)?;
-    let iterator = requests.iter();
+        //Execute the request read from the file
+        for request in iterator {
+            let res = send_request(request, path.clone() + ".txt").await?;
+            let mut file = OpenOptions::new()
+                .write(true)
+                .append(true)
+                .open((path.clone() + ".txt").trim())
+                .unwrap();
 
-    for request in iterator {
-        let res = send_request(request, path.clone() + ".txt").await?;
-        let mut file = OpenOptions::new()
-            .write(true)
-            .append(true)
-            .open((path.clone() + ".txt").trim())
-            .unwrap();
-
-        writeln!(file, "Response: {}\n", res)?;
-        println!("Response: {}\n", res);
+            writeln!(file, "Response: {}\n", res)?;
+            println!("Response: {}\n", res);
+        }
     }
     Ok(())
 }

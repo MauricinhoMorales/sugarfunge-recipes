@@ -1,0 +1,11 @@
+[{
+    "endpoint": "asset/transfer_from",
+    "body": {
+        "seed": "//Alice",
+        "from": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
+        "to": "",
+        "class_id": 0,
+        "asset_id": 0,
+        "amount": 0
+    }
+}]

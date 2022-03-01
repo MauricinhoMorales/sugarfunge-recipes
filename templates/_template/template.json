@@ -1,10 +1,9 @@
-[
-    {   
+[{
         "endpoint": "account/create",
-        "body":""
-        
+        "body": ""
+
     },
-    {   
+    {
         "endpoint": "account/fund",
         "body": {
             "seed": "//Alice",
@@ -12,13 +11,13 @@
             "to": ""
         }
     },
-    {   
+    {
         "endpoint": "account/balance",
         "body": {
             "account": ""
         }
     },
-    {   
+    {
         "endpoint": "asset/create_class",
         "body": {
             "seed": "//Alice",
@@ -29,7 +28,7 @@
             "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
         }
     },
-    {   
+    {
         "endpoint": "asset/create",
         "body": {
             "seed": "//Alice",
@@ -41,7 +40,7 @@
             }
         }
     },
-    {   
+    {
         "endpoint": "asset/mint",
         "body": {
             "seed": "//Alice",
@@ -51,7 +50,7 @@
             "amount": 0
         }
     },
-    {   
+    {
         "endpoint": "asset/balance",
         "body": {
             "account": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY",
@@ -59,7 +58,7 @@
             "asset_id": 0
         }
     },
-    {   
+    {
         "endpoint": "asset/transfer_from",
         "body": {
             "seed": "//Alice",
@@ -70,7 +69,7 @@
             "amount": 0
         }
     },
-    {   
+    {
         "endpoint": "currency/issue",
         "body": {
             "seed": "//Alice",
@@ -82,7 +81,7 @@
             "amount": 0
         }
     },
-    {   
+    {
         "endpoint": "currency/issuance",
         "body": {
             "currency": {
@@ -91,7 +90,7 @@
             }
         }
     },
-    {   
+    {
         "endpoint": "currency/mint",
         "body": {
             "amount": 0,
@@ -102,7 +101,7 @@
             "seed": "//Alice"
         }
     },
-    {   
+    {
         "endpoint": "currency/burn",
         "body": {
             "amount": 0,
@@ -113,7 +112,7 @@
             "seed": "//Alice"
         }
     },
-    {   
+    {
         "endpoint": "currency/supply",
         "body": {
             "currency": {
@@ -122,11 +121,73 @@
             }
         }
     },
-    {   
+    {
         "endpoint": "escrow/create",
         "body": {
             "seed": "//Alice",
             "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+        }
+    },
+    {
+        "endpoint": "escrow/deposit",
+        "body": {
+            "seed": "//Alice",
+            "escrow": "",
+            "class_id": 0,
+            "asset_ids": [0],
+            "amounts": [0]
+        }
+    },
+    {
+        "endpoint": "escrow/refund",
+        "body": {
+            "seed": "//Alice",
+            "escrow": ""
+        }
+    },
+    {
+        "endpoint": "market/create_market",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 0
+        }
+
+    },
+    {
+        "endpoint": "market/create_market_rate",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 0,
+            "market_rate_id": 0,
+            "rates": {
+                "rates": [{
+                    "class_id": 0,
+                    "asset_id": 0,
+                    "action": "",
+                    "amount": 0,
+                    "from": "",
+                    "to": ""
+                }],
+                "metadata": []
+            }
+        }
+    },
+    {
+        "endpoint": "market/deposit_assets",
+        "body": {
+            "seed": "//Alice",
+            "market_id": 0,
+            "market_rate_id": 0,
+            "amount": 0
+        }
+    },
+    {
+        "endpoint": "market/exchange_assets",
+        "body": {
+            "seed": "//Bob",
+            "market_id": 0,
+            "market_rate_id": 0,
+            "amount": 0
         }
     }
 ]

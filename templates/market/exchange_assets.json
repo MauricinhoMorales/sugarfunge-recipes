@@ -1,0 +1,9 @@
+[{
+    "endpoint": "market/exchange_assets",
+    "body": {
+        "seed": "//Bob",
+        "market_id": 0,
+        "market_rate_id": 0,
+        "amount": 0
+    }
+}]

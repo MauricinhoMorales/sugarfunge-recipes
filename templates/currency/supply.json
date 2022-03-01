@@ -1,0 +1,9 @@
+[{
+    "endpoint": "currency/supply",
+    "body": {
+        "currency": {
+            "class_id": 0,
+            "asset_id": 0
+        }
+    }
+}]

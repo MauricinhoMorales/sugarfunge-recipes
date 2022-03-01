@@ -1,0 +1,7 @@
+[{
+    "endpoint": "escrow/refund",
+    "body": {
+        "seed": "//Alice",
+        "escrow": ""
+    }
+}]

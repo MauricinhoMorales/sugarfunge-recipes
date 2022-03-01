@@ -1,0 +1,10 @@
+[{
+    "endpoint": "escrow/deposit",
+    "body": {
+        "seed": "//Alice",
+        "escrow": "",
+        "class_id": 0,
+        "asset_ids": [0],
+        "amounts": [0]
+    }
+}]

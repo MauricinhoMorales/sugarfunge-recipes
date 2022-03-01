@@ -1,0 +1,11 @@
+[{
+    "endpoint": "asset/create_class",
+    "body": {
+        "seed": "//Alice",
+        "metadata": {
+            "userdata": ""
+        },
+        "class_id": 0,
+        "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+    }
+}]

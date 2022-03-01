@@ -1,0 +1,19 @@
+[{
+    "endpoint": "market/create_market_rate",
+    "body": {
+        "seed": "//Alice",
+        "market_id": 0,
+        "market_rate_id": 0,
+        "rates": {
+            "rates": [{
+                "class_id": 0,
+                "asset_id": 0,
+                "action": "",
+                "amount": 0,
+                "from": "",
+                "to": ""
+            }],
+            "metadata": []
+        }
+    }
+}]

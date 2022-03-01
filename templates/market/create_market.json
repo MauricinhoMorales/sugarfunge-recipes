@@ -1,0 +1,8 @@
+[{
+    "endpoint": "market/create_market",
+    "body": {
+        "seed": "//Alice",
+        "market_id": 0
+    }
+
+}]

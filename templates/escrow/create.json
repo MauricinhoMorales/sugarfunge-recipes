@@ -1,0 +1,7 @@
+[{
+    "endpoint": "escrow/create",
+    "body": {
+        "seed": "//Alice",
+        "owner": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+    }
+}]

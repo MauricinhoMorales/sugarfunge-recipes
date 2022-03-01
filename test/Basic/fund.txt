@@ -1,8 +1,0 @@
-Request: Account Fund
-Body: {"amount":7500000000000,"seed":"//Alice","to":"5FbmVoDZvAJ8C4CZaphGgii8RXY3Lb5Zg8Jguf8iuUb6A8Wr"}
-Response: {"from":"5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY","to":"5FbmVoDZvAJ8C4CZaphGgii8RXY3Lb5Zg8Jguf8iuUb6A8Wr","amount":7500000000000}
-
-Request: Account Balance
-Body: {"account":"5FbmVoDZvAJ8C4CZaphGgii8RXY3Lb5Zg8Jguf8iuUb6A8Wr"}
-Response: {"balance":7500000000000}
-
