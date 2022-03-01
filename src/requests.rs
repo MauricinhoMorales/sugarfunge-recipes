@@ -263,7 +263,7 @@ pub async fn escrow_refund(
     Ok(res)
 }
 
-pub async fn create_market(
+pub async fn market_create_market(
     endpoint: &str,
     body: CreateMarketBody,
 ) -> Result<String, Box<dyn Error>> {
@@ -280,7 +280,7 @@ pub async fn create_market(
     Ok(res)
 }
 
-pub async fn create_market_rate(
+pub async fn market_create_market_rate(
     endpoint: &str,
     body: CreateMarketRateBody,
 ) -> Result<String, Box<dyn Error>> {
@@ -297,7 +297,7 @@ pub async fn create_market_rate(
     Ok(res)
 }
 
-pub async fn deposit_assets(
+pub async fn market_deposit_assets(
     endpoint: &str,
     body: DepositAssetsBody,
 ) -> Result<String, Box<dyn Error>> {
@@ -314,9 +314,176 @@ pub async fn deposit_assets(
     Ok(res)
 }
 
-pub async fn exchange_assets(
+pub async fn market_exchange_assets(
     endpoint: &str,
     body: ExchangeAssetsBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn bundle_register_bundle(
+    endpoint: &str,
+    body: RegisterBundleBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn bundle_mint_bundle(
+    endpoint: &str,
+    body: MintBundleBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn bundle_burn_bundle(
+    endpoint: &str,
+    body: BurnBundleBody,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn dex_create(endpoint: &str, body: CreateDexInput) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn dex_buy_assets(
+    endpoint: &str,
+    body: BuyAssetsInput,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn dex_sell_assets(
+    endpoint: &str,
+    body: SellAssetsInput,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn dex_add_liquidity(
+    endpoint: &str,
+    body: AddLiquidityInput,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn dex_remove_liquidity(
+    endpoint: &str,
+    body: RemoveLiquidityInput,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn validator_remove_validator(
+    endpoint: &str,
+    body: RemoveValidatorInput,
+) -> Result<String, Box<dyn Error>> {
+    let url = format!("{}{}", BASE_URL, endpoint);
+    let client = reqwest::Client::new();
+    let res = client
+        .post(&url)
+        .body(serde_json::to_string(&body)?)
+        .header("Content-Type", "application/json")
+        .send()
+        .await?
+        .text()
+        .await?;
+    Ok(res)
+}
+
+pub async fn validator_add_validator(
+    endpoint: &str,
+    body: AddValidatorInput,
 ) -> Result<String, Box<dyn Error>> {
     let url = format!("{}{}", BASE_URL, endpoint);
     let client = reqwest::Client::new();

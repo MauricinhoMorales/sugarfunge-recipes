@@ -1,0 +1,15 @@
+[{
+    "endpoint": "dex/sell_assets",
+    "body": {
+        "seed": "//Alice",
+        "asset_ids": [
+            0
+        ],
+        "exchange_id": 0,
+        "to": "",
+        "asset_amounts_in": [
+            0
+        ],
+        "min_currency": 0
+    }
+}]

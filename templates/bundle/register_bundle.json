@@ -1,0 +1,25 @@
+[{
+    "endpoint": "bundle/register_bundle",
+    "body": {
+        "seed": "//Alice",
+        "class_id": 0,
+        "asset_id": 0,
+        "bundle_id": "Hash String",
+        "schema": {
+            "class_ids": [1000, 2000, 3000],
+            "asset_ids": [
+                [0, 1, 2, 3],
+                [0, 1, 2, 3],
+                [0, 1, 2, 3]
+            ],
+            "amounts": [
+                [10, 20, 30, 40],
+                [10, 20, 30, 40],
+                [10, 20, 30, 40]
+            ]
+        },
+        "metadata": {
+            "data": ""
+        }
+    }
+}]

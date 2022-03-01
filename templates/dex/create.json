@@ -1,0 +1,13 @@
+[{
+    "endpoint": "dex/create",
+    "body": {
+        "seed": "//Alice",
+        "exchange_id": 0,
+        "currency": {
+            "class_id": 0,
+            "asset_id": 0
+        },
+        "asset_class_id": 0,
+        "lp_class_id": 0
+    }
+}]

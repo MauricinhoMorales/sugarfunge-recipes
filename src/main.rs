@@ -117,23 +117,73 @@ async fn send_request(request: &Request, path: String) -> Result<String, Box<dyn
         }
         "market/create_market" => {
             let body = serde_json::from_value(request.body.clone()).unwrap();
-            res = create_market(request.endpoint.as_str(), body).await?;
+            res = market_create_market(request.endpoint.as_str(), body).await?;
             print_header("Create Market", request.body.clone(), path).await?;
         }
         "market/create_market_rate" => {
             let body = serde_json::from_value(request.body.clone()).unwrap();
-            res = create_market_rate(request.endpoint.as_str(), body).await?;
+            res = market_create_market_rate(request.endpoint.as_str(), body).await?;
             print_header("Create Market Rate", request.body.clone(), path).await?;
         }
         "market/deposit_assets" => {
             let body = serde_json::from_value(request.body.clone()).unwrap();
-            res = deposit_assets(request.endpoint.as_str(), body).await?;
+            res = market_deposit_assets(request.endpoint.as_str(), body).await?;
             print_header("Deposit Assets", request.body.clone(), path).await?;
         }
         "market/exchange_assets" => {
             let body = serde_json::from_value(request.body.clone()).unwrap();
-            res = exchange_assets(request.endpoint.as_str(), body).await?;
+            res = market_exchange_assets(request.endpoint.as_str(), body).await?;
             print_header("Exchange Assets", request.body.clone(), path).await?;
+        }
+        "bundle/register_bundle" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = bundle_register_bundle(request.endpoint.as_str(), body).await?;
+            print_header("Register Bundle", request.body.clone(), path).await?;
+        }
+        "bundle/mint_bundle" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = bundle_mint_bundle(request.endpoint.as_str(), body).await?;
+            print_header("Mint Bundle", request.body.clone(), path).await?;
+        }
+        "bundle/burn_bundle" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = bundle_burn_bundle(request.endpoint.as_str(), body).await?;
+            print_header("Burn Bundle", request.body.clone(), path).await?;
+        }
+        "dex/create" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = dex_create(request.endpoint.as_str(), body).await?;
+            print_header("Dex Create", request.body.clone(), path).await?;
+        }
+        "dex/add_liquidity" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = dex_add_liquidity(request.endpoint.as_str(), body).await?;
+            print_header("Dex Add Liquidity", request.body.clone(), path).await?;
+        }
+        "dex/remove_liquidity" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = dex_remove_liquidity(request.endpoint.as_str(), body).await?;
+            print_header("Dex Remove Liquidity", request.body.clone(), path).await?;
+        }
+        "dex/buy_assets" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = dex_buy_assets(request.endpoint.as_str(), body).await?;
+            print_header("Dex Buy Assets", request.body.clone(), path).await?;
+        }
+        "dex/sell_assets" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = dex_sell_assets(request.endpoint.as_str(), body).await?;
+            print_header("Dex Sell Assets", request.body.clone(), path).await?;
+        }
+        "validator/add_validator" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = validator_add_validator(request.endpoint.as_str(), body).await?;
+            print_header("Add Validator", request.body.clone(), path).await?;
+        }
+        "validator/remove_validator" => {
+            let body = serde_json::from_value(request.body.clone()).unwrap();
+            res = validator_remove_validator(request.endpoint.as_str(), body).await?;
+            print_header("Remove Validator", request.body.clone(), path).await?;
         }
 
         _ => res = "This endpoint doesn't exist".to_string(),

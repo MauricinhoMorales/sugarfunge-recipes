@@ -1,0 +1,4 @@
+Request: Account Balance
+Body: {"account":"5EjU55Xf65ZPsDeTyddCgXo4vfKSt7tK6sBj56ing6ZEZC9o"}
+Response: {"balance":7500000000000000}
+

@@ -1,0 +1,17 @@
+[{
+    "endpoint": "dex/add_liquidity",
+    "body": {
+        "seed": "//Alice",
+        "asset_ids": [
+            0
+        ],
+        "exchange_id": 0,
+        "max_currencies": [
+            0
+        ],
+        "to": "",
+        "asset_amounts": [
+            0
+        ]
+    }
+}]

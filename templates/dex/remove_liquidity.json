@@ -1,0 +1,20 @@
+[{
+    "endpoint": "dex/remove_liquidity",
+    "body": {
+        "seed": "//Alice",
+        "asset_ids": [
+            0
+        ],
+        "exchange_id": 0,
+        "liquidities": [
+            0
+        ],
+        "min_currencies": [
+            0
+        ],
+        "to": "",
+        "min_assets": [
+            0
+        ]
+    }
+}]

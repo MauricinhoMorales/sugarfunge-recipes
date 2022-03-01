@@ -5,7 +5,7 @@ pub struct Request {
     pub endpoint: String,
     pub body: serde_json::Value,
 }
-
+// ACCOUNTS--------------------------------------------------------------------------
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct AccountCreateResponse {
     pub seed: String,
@@ -35,6 +35,8 @@ pub struct AccountBalanceBody {
 pub struct AccountBalanceResponse {
     pub balance: u128,
 }
+
+// ASSETS------------------------------------------------------------------------------
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct MetaData {
@@ -121,10 +123,12 @@ pub struct TokenTransferResponse {
     pub who: String,
 }
 
+//CURRENCY---------------------------------------------------------------------------
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Currency {
-    pub class_id: u16,
-    pub asset_id: u16,
+    pub class_id: u64,
+    pub asset_id: u64,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -189,6 +193,8 @@ pub struct CurrencySupplyResponse {
     pub total_supply: u128,
 }
 
+//ESCROW-----------------------------------------------------------------------------
+
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct EscrowCreateBody {
     pub seed: String,
@@ -231,17 +237,48 @@ pub struct EscrowRefundResponse {
     pub owner: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct CreateMarketBody {
-    seed: String,
-    market_id: u64,
+//MARKET--------------------------------------------------------------------------
+
+#[derive(Serialize, Deserialize, Clone)]
+pub enum AmountOp {
+    Equal,
+    LessThan,
+    LessEqualThan,
+    GreaterThan,
+    GreaterEqualThan,
 }
 
 #[derive(Serialize, Deserialize, Clone)]
-pub struct CreateMarketResponse {
-    market_id: u64,
-    who: String,
+pub enum RateAction {
+    Transfer,
+    Mint,
+    Burn,
+    Has(AmountOp),
 }
+
+#[derive(Serialize, Deserialize, Clone)]
+pub enum RateAccount {
+    Market,
+    Account(String),
+    Buyer,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct AssetRate {
+    class_id: u64,
+    asset_id: u64,
+    action: RateAction,
+    amount: i128,
+    from: RateAccount,
+    to: RateAccount,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct RateBalance {
+    rate: AssetRate,
+    balance: i128,
+}
+
 #[derive(Serialize, Deserialize, Clone)]
 pub enum AmountOpInput {
     Transfer,
@@ -267,6 +304,19 @@ pub struct RatesInput {
     rates: Vec<AssetRateInput>,
     metadata: Vec<u8>,
 }
+
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct CreateMarketBody {
+    seed: String,
+    market_id: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct CreateMarketResponse {
+    market_id: u64,
+    who: String,
+}
+
 #[derive(Serialize, Deserialize, Clone)]
 pub struct CreateMarketRateBody {
     seed: String,
@@ -296,7 +346,7 @@ pub struct DepositAssetsResponse {
     market_id: u64,
     market_rate_id: u64,
     amount: u128,
-    //balances: Vec<RateBalance>,
+    balances: Vec<RateBalance>,
     success: bool,
 }
 
@@ -314,6 +364,191 @@ pub struct ExchangeAssetsResponse {
     market_id: u64,
     market_rate_id: u64,
     amount: u128,
-    //balances: Vec<RateBalance>,
+    balances: Vec<RateBalance>,
     success: bool,
+}
+
+//BUNDLE----------------------------------------------------------------------------
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct BundleSchema {
+    class_ids: Vec<u64>,
+    asset_ids: Vec<Vec<u64>>,
+    amounts: Vec<Vec<u128>>,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct RegisterBundleBody {
+    seed: String,
+    class_id: u64,
+    asset_id: u64,
+    bundle_id: String,
+    schema: BundleSchema,
+    metadata: serde_json::Value,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct RegisterBundleResponse {
+    bundle_id: String,
+    who: String,
+    class_id: u64,
+    asset_id: u64,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct MintBundleBody {
+    seed: String,
+    from: String,
+    to: String,
+    bundle_id: String,
+    amount: u128,
+}
+
+#[derive(Serialize, Deserialize, Clone)]
+pub struct MintBundleResponse {
+    who: String,
+    from: String,
+    to: String,
+    bundle_id: String,
+    amount: u128,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct BurnBundleBody {
+    seed: String,
+    from: String,
+    to: String,
+    bundle_id: String,
+    amount: u128,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct BurnBundleResponse {
+    who: String,
+    from: String,
+    to: String,
+    bundle_id: String,
+    amount: u128,
+}
+
+//DEX----------------------------------------------------------------------------
+
+#[derive(Serialize, Deserialize)]
+pub struct CreateDexInput {
+    seed: String,
+    exchange_id: u32,
+    currency: Currency,
+    asset_class_id: u64,
+    lp_class_id: u64,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct CreateDexOutput {
+    exchange_id: u32,
+    who: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct BuyAssetsInput {
+    seed: String,
+    exchange_id: u32,
+    asset_ids: Vec<u64>,
+    asset_amounts_out: Vec<u128>,
+    max_currency: u128,
+    to: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct BuyAssetsOutput {
+    exchange_id: u32,
+    who: String,
+    to: String,
+    asset_ids: Vec<u64>,
+    asset_amounts_out: Vec<u128>,
+    currency_amounts_in: Vec<u128>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct SellAssetsInput {
+    seed: String,
+    exchange_id: u32,
+    asset_ids: Vec<u64>,
+    asset_amounts_in: Vec<u128>,
+    min_currency: u128,
+    to: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct SellAssetsOutput {
+    exchange_id: u32,
+    who: String,
+    to: String,
+    asset_ids: Vec<u64>,
+    asset_amounts_in: Vec<u128>,
+    currency_amounts_out: Vec<u128>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct AddLiquidityInput {
+    seed: String,
+    to: String,
+    exchange_id: u32,
+    asset_ids: Vec<u64>,
+    asset_amounts: Vec<u128>,
+    max_currencies: Vec<u128>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct AddLiquidityOutput {
+    exchange_id: u32,
+    who: String,
+    to: String,
+    asset_ids: Vec<u64>,
+    asset_amounts: Vec<u128>,
+    currency_amounts: Vec<u128>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveLiquidityInput {
+    seed: String,
+    to: String,
+    exchange_id: u32,
+    asset_ids: Vec<u64>,
+    liquidities: Vec<u128>,
+    min_currencies: Vec<u128>,
+    min_assets: Vec<u128>,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveLiquidityOutput {
+    exchange_id: u32,
+    who: String,
+    to: String,
+    asset_ids: Vec<u64>,
+    asset_amounts: Vec<u128>,
+    currency_amounts: Vec<u128>,
+}
+
+//VALIDATOR-----------------------------------------------------------------------------
+
+#[derive(Serialize, Deserialize)]
+pub struct AddValidatorInput {
+    seed: String,
+    validator_id: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct AddValidatorOutput {
+    validator_id: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveValidatorInput {
+    seed: String,
+    validator_id: String,
+}
+
+#[derive(Serialize, Deserialize)]
+pub struct RemoveValidatorOutput {
+    validator_id: String,
 }

@@ -1,0 +1,10 @@
+[{
+    "endpoint": "bundle/mint_bundle",
+    "body": {
+        "seed": "//Alice",
+        "from": "",
+        "to": "",
+        "bundle_id": "Hash String",
+        "amount": 0
+    }
+}]
