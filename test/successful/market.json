@@ -2,15 +2,15 @@
         "endpoint": "market/create_market",
         "body": {
             "seed": "//Alice",
-            "market_id": 16
+            "market_id": 17
         }
 
     }, {
         "endpoint": "market/create_market_rate",
         "body": {
             "seed": "//Alice",
-            "market_id": 16,
-            "market_rate_id": 16,
+            "market_id": 17,
+            "market_rate_id": 17,
             "rates": {
                 "rates": [{
                     "class_id": 10,
@@ -28,8 +28,8 @@
         "endpoint": "market/deposit_assets",
         "body": {
             "seed": "//Alice",
-            "market_id": 16,
-            "market_rate_id": 16,
+            "market_id": 17,
+            "market_rate_id": 17,
             "amount": 1000
         }
     },
@@ -37,8 +37,8 @@
         "endpoint": "market/exchange_assets",
         "body": {
             "seed": "//Bob",
-            "market_id": 16,
-            "market_rate_id": 16,
+            "market_id": 17,
+            "market_rate_id": 17,
             "amount": 1000
         }
     }
